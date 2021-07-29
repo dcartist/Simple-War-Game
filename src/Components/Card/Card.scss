@@ -1,0 +1,37 @@
+.card-front{
+border: 1px solid black;
+background-color: black;
+display: flex;
+align-items: center;
+justify-content: center;
+.card-inside{
+    margin: 5px;
+     border: 3px outset white;
+     color: white;
+     text-align: center;
+     display: flex;
+    align-self: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 25px;
+.card-circle{
+    color: #000;
+    border-radius: 50%;
+    background-color: white;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    h1{
+        text-align: center;
+
+    }
+}
+
+}
+
+     
+ 
+}
