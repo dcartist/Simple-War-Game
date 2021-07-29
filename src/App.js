@@ -31,7 +31,7 @@ setDeck = (data) => {
         <Route path="/" exact component={Home} />
         <Route path="/help" exact component={Instructions} />
         <Route path="/about" exact component={About} />
-        <Route path="/deck"><Deck deck={this.state.deck}></Deck></Route>
+        <Route path="/deck"><Deck deck={this.state.deck} setDeck={this.setDeck}></Deck></Route>
         </Switch>
         
       </div>
