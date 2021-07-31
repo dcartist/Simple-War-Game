@@ -6,10 +6,14 @@ import Home from "./Pages/Home"
 import About from "./Pages/About"
 import Instructions from "./Pages/Instructions"
 import Deck from "./Components/Card/Deck"
+import Game from "./Pages/Game"
 export default class App extends Component {
   constructor(){
     super()
     this.state={
+        deckStyle: 0,
+        playerDeck: [],
+        computerDeck:[],
         deck:[],
         cardColor: "",
         score: 0,
@@ -20,9 +24,16 @@ export default class App extends Component {
     }
 }
 
+setSettings = (data, style, playerDeck, compuerDeck)=>{
+  this.setState(() =>({ deck: data, deckStyle: style, playerDeck:playerDeck, compuerDeck:compuerDeck}));
+}
 setDeck = (data) => {
   this.setState({ deck: data });
 };
+setStyle = (styleType) => {
+  this.setState({deckStyle: styleType})
+  console.log(this.state.deckStyle)
+}
 
   render() {
     return (
@@ -31,9 +42,10 @@ setDeck = (data) => {
         <Route path="/" exact component={Home} />
         <Route path="/help" exact component={Instructions} />
         <Route path="/about" exact component={About} />
-        <Route path="/deck"><Deck deck={this.state.deck} setDeck={this.setDeck}></Deck></Route>
+        <Route path="/deck"><Deck deck={this.state.deck} setDeck={this.setDeck} setSettings={this.setSettings} setStyle={this.setStyle}></Deck></Route>
+        <Route path="/game"><Game state={this.state}></Game></Route>
         </Switch>
-        
+        this is {this.state.deckStyle}
       </div>
     )
   }

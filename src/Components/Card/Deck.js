@@ -1,11 +1,41 @@
 import React, { useState } from 'react';
 
-export default function Deck(props) {
+import { useHistory } from "react-router-dom";
 
-    console.log(props.deck)
-    function creation(){
+export default function Deck(props) {
+    
+        let history = useHistory();
+      
+        function gotodeck() {
+          history.push("/game");
+        }
+      
+    //Fisher–Yates Shuffle https://bost.ocks.org/mike/shuffle/
+function shuffle(array) {
+    let newArray = []
+    var m = array.length,
+        t, i;
+
+    // While there remain elements to shuffle…
+    while (m) {
+
+        // Pick a remaining element…
+        i = Math.floor(Math.random() * m--);
+
+        // And swap it with the current element.
+        t = array[m];
+        array[m] = array[i];
+        array[i] = t;
+    }
+    newArray.push(array)
+    return newArray;
+    // return array;
+}
+//calling to shuffle the array
+
+    function creation(deckstyle){
+        console.log(`This is the deck number ${deckstyle}`)
         let cards = []
-        const cardDeckLength = 52
         const cardRanks = [
             "Ace",
             "2",
@@ -37,15 +67,30 @@ export default function Deck(props) {
                 cards.push(card);
             }
         }
-        props.setDeck(cards)
+
+        shuffle(cards)
+        let newDeck = cards
+        let playerDeck = newDeck.splice(0, 26)
+        let computerDeck = newDeck.splice(0, 26)
+        // console.log(cards, )
+
+        // data, style, playerDeck, compuerDeck
+        // props.setDeck(cards)
+        // props.setStyle(deckstyle)
         // console.log(props.deck[6].rank)
         // console.log(cards[0])
+        props.setSettings(cards, deckstyle, playerDeck, computerDeck)
+        gotodeck()
+        // console.log(props.deck)
         
 
     }
     return (
         <div>
-            <button onClick={creation}> press here</button>
+            <button onClick={()=>creation(1)}> press here</button>
+            <button onClick={()=>creation(2)}> press here</button>
+            <button onClick={()=>creation(3)}> press here</button>
+            <button onClick={()=>creation(4)}> press here</button>
         </div>
     )
 }
