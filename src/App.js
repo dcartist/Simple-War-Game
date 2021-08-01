@@ -28,6 +28,7 @@ export default class App extends Component {
   constructor(){
     super()
     this.state={
+        endNumber: 0,
         deckStyle: 0,
         playerDeck: [],
         computerDeck:[],
@@ -89,8 +90,6 @@ holdingCards=()=> {
         finder = false
         console.log("Player won War")
         this.movingWarCards("player", i)
-        
-
       }
 
   } 
