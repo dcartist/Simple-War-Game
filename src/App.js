@@ -17,6 +17,13 @@ if cards don't match compare and send to move deck
 if same cards send through holding deck again.
  */
 
+//* Have condition to make sure it can go to the end or selected number for ending
+//! make holdingCards shift the player/computer deck
+//! maker checking funtion
+//! add war condition to run holdingCards time 3
+//! make war check updated deck 
+//! write winning funtion
+
 export default class App extends Component {
   constructor(){
     super()
