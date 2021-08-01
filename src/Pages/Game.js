@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import Card from "../Components/Card/Card"
 export default class Game extends Component {
 //   constructor(props){
 //       super(props)
@@ -37,11 +37,13 @@ export default class Game extends Component {
                 <button onClick={this.war}>War</button>
 
                 <h3>player's card</h3>
+                <Card rank={this.props.playerDeck[0].rank} suit={this.props.playerDeck[0].suit}/>
                 {this.props.playerDeck[0].suit}
                 {this.props.playerDeck[0].rank}
                 <hr></hr>
                 {this.props.playerDeck[0].score}
                 <h3> Comp card</h3>
+                <Card rank={this.props.computerDeck[0].rank} suit={this.props.computerDeck[0].suit}/>
                 {this.props.computerDeck[0].suit}
                 {this.props.computerDeck[0].rank}
                 <hr></hr>
