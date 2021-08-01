@@ -33,21 +33,19 @@ export default class Game extends Component {
     render() {
 
         return (
-            <div>
+            <div >
                 <button onClick={this.war}>War</button>
-
                 <h3>player's card</h3>
+                <div className="game-board">
+                <div>
                 <Card rank={this.props.playerDeck[0].rank} suit={this.props.playerDeck[0].suit}/>
-                {this.props.playerDeck[0].suit}
-                {this.props.playerDeck[0].rank}
-                <hr></hr>
-                {this.props.playerDeck[0].score}
-                <h3> Comp card</h3>
-                <Card rank={this.props.computerDeck[0].rank} suit={this.props.computerDeck[0].suit}/>
-                {this.props.computerDeck[0].suit}
-                {this.props.computerDeck[0].rank}
-                <hr></hr>
-                {this.props.computerDeck[0].score}
+                </div>
+              <div>
+              <Card rank={this.props.computerDeck[0].rank} suit={this.props.computerDeck[0].suit}/>
+              </div>
+                </div>
+                
+                
             </div>
         )
     }
