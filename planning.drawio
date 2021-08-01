@@ -1,0 +1,58 @@
+<mxfile host="65bd71144e">
+    <diagram id="kEvOaR7Lp4RyKJr2K9Rp" name="Page-1">
+        <mxGraphModel dx="898" dy="553" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2" value="Deck" style="rounded=1;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="100" y="30" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Player Deck" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="10" y="45" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Computer Deck" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="190" y="45" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="Holding Deck" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=bottom;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="90" y="165" width="120" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="7" value="Player Deck" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="30" y="205" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="8" value="Computer Deck" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="205" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="9" value="Check First Card" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=bottom;" parent="1" vertex="1">
+                    <mxGeometry x="575" y="40" width="120" height="120" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Player Deck" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="510" y="85" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Computer Deck" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="640" y="85" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="MoveDeck" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=bottom;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="85" y="320" width="120" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Player Deck" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="25" y="360" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="14" value="Computer Deck" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="155" y="360" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="15" value="War Deck" style="rounded=0;whiteSpace=wrap;html=1;verticalAlign=bottom;fontStyle=1" parent="1" vertex="1">
+                    <mxGeometry x="560" y="260" width="120" height="100" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="Player Deck" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="500" y="300" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="Computer Deck" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="630" y="300" width="120" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Check the first card&lt;br style=&quot;font-size: 16px;&quot;&gt;if cards don't match send, compare&lt;br style=&quot;font-size: 16px;&quot;&gt;and send them to moveDeck. If cards match,&lt;br style=&quot;font-size: 16px;&quot;&gt;move 0 - 5 into holding and check last card&lt;br style=&quot;font-size: 16px;&quot;&gt;if cards don't match compare and send to move deck&lt;br style=&quot;font-size: 16px;&quot;&gt;if same cards send through holding deck again.&lt;br style=&quot;font-size: 16px;&quot;&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fontSize=16;" vertex="1" parent="1">
+                    <mxGeometry x="310" y="410" width="390" height="120" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

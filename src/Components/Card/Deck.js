@@ -74,7 +74,7 @@ function shuffle(array) {
         let computerDeck = newDeck.splice(0, 26)
         // console.log(cards, )
 
-        // data, style, playerDeck, compuerDeck
+        // data, style, playerDeck, computerDeck
         // props.setDeck(cards)
         // props.setStyle(deckstyle)
         // console.log(props.deck[6].rank)
