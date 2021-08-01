@@ -18,11 +18,11 @@ if same cards send through holding deck again.
  */
 
 //* Have condition to make sure it can go to the end or selected number for ending
-//! make holdingCards shift the player/computer deck
-//! maker checking funtion
-//! add war condition to run holdingCards time 3
-//! make war check updated deck 
-//! write winning funtion
+//TODO: make holdingCards shift the player/computer deck
+//TODO: maker checking funtion
+//TODO: add war condition to run holdingCards time 3
+//TODO: make war check updated deck 
+//TODO: write winning funtion
 
 export default class App extends Component {
   constructor(){
@@ -37,20 +37,71 @@ export default class App extends Component {
         match: 0,
         gameplay: [],
         timeElapsed:"",
-        player:""
+        player:"",
+        winnerOfRound: "",
+        war: 0
     }
 }
-holdingCards=()=> {
-  let tempDeck = [this.state.playerDeck[0],this.state.computerDeck[0]]
-  console.log(tempDeck)
-  this.setState(()=>({holdingDeck: tempDeck}))
-  
-}
-sendCards = (name) => {
+
+movingWarCards=(winner, idx)=>{
+ //* Creating new arrays from the state of Player and Computer
+ let computerUpdateDeck = this.state.computerDeck
+ let userUpdateDeck = this.state.playerDeck
+
+ //* Taking the cards from the new arrays of Player and Computer
+ let userTempDeck = userUpdateDeck.splice(0,idx)
+ let computerTempDeck = computerUpdateDeck.splice(0,idx)
+
+ //* Inserting new cards into an array and setting it to state
+ let tempDeck = userTempDeck.concat(computerTempDeck)
+ this.setState({ holdingDeck: tempDeck, computerDeck: computerUpdateDeck,  playerDeck: userUpdateDeck });
+
+ if (winner == "player"){
+  tempDeck = this.state.playerDeck.concat(this.state.holdingDeck)
+  this.setState(()=>({playerDeck:tempDeck, winnerOfRound: "player"}))
+} else {
+  tempDeck = this.state.computerDeck.concat(this.state.holdingDeck)
+  this.setState(()=>({computerDeck: tempDeck, winnerOfRound: "computer"}))
+ }
+ // console.log("player Deck state");
+ // console.log(this.state.playerDeck)
+ // console.log("holding:")
+ // console.log(this.state.holdingDeck)
 
 }
-setCards=(winner, looser)=>{
-  this.holdingCards()
+//* adding cards to the temporary positions
+holdingCards=()=> {
+  //* Checking the the player and computer to see if there is a winner via index. When it finds the index then splices based on it.
+  let i = 1
+
+  if (this.state.computerDeck[0].score == this.state.playerDeck[0].score){
+    console.log (`${this.state.computerDeck[0].score} vs.  ${this.state.playerDeck[0].score}`)
+    let finder = true
+    while (finder){
+      if (this.state.computerDeck[i].score == this.state.playerDeck[i].score){
+        i++
+        console.log("still tied")
+      } else if (this.state.computerDeck[i].score > this.state.playerDeck[i].score){
+        finder = false
+        this.movingWarCards("computer", i)
+        console.log("Computer won War")
+        
+      } else {
+        finder = false
+        console.log("Player won War")
+        this.movingWarCards("player", i)
+        
+
+      }
+
+    }
+  } 
+
+  
+}
+
+setCards=(winner)=>{
+  
  if(winner == "player"){
   let updatedDeck = this.state.playerDeck
   updatedDeck.push(this.state.computerDeck[0])
@@ -59,8 +110,8 @@ setCards=(winner, looser)=>{
   updatedDeck.push(poppedDeck)
   let updatelooserdeck = this.state.computerDeck
   updatelooserdeck.shift()
-  this.setState(()=>({playerDeck: updatedDeck, computerDeck: updatelooserdeck}))
-} else if (winner == "computer"){
+  this.setState(()=>({playerDeck: updatedDeck, computerDeck: updatelooserdeck, winnerOfRound: "player" }))
+} else {
   let updatedDeck = this.state.computerDeck
   updatedDeck.push(this.state.playerDeck[0])
   let poppedDeck = this.state.computerDeck[0]
@@ -68,26 +119,19 @@ setCards=(winner, looser)=>{
   updatedDeck.push(poppedDeck)
   let updatelooserdeck = this.state.playerDeck
   updatelooserdeck.shift()
-  this.setState(()=>({playerDeck: updatelooserdeck, computerDeck: updatedDeck}))
-} else {
-
-}
-console.log(this.state.playerDeck)
-console.log(this.state.computerDeck)
-}
-setHoldingCards={
+  this.setState(()=>({playerDeck: updatelooserdeck, computerDeck: updatedDeck, winnerOfRound: "computer" }))
+} 
 
 }
 
-setSettings = (data, style, playerDeck, computerDeck)=>{
-  this.setState(() =>({ deck: data, deckStyle: style, playerDeck:playerDeck, computerDeck:computerDeck}));
+setSettings = (style, playerDeck, computerDeck)=>{
+  this.setState(() =>({ deckStyle: style, playerDeck:playerDeck, computerDeck:computerDeck}));
 }
 setDeck = (data) => {
   this.setState({ deck: data });
 };
 setStyle = (styleType) => {
   this.setState({deckStyle: styleType})
-  console.log(this.state.deckStyle)
 }
 
   render() {
@@ -98,9 +142,22 @@ setStyle = (styleType) => {
         <Route path="/help" exact component={Instructions} />
         <Route path="/about" exact component={About} />
         <Route path="/deck"><Deck deck={this.state.deck} setDeck={this.setDeck} setSettings={this.setSettings} setStyle={this.setStyle}></Deck></Route>
-        <Route path="/game"><Game {...this.state} setCards={this.setCards}></Game></Route>
+        <Route path="/game"><Game {...this.state} setCards={this.setCards} holdingCards={this.holdingCards}></Game></Route>
         </Switch>
-        this is {this.state.deckStyle}
+        <p><Link to="/deck">To Deck</Link></p>
+        <p>
+          
+          player deck: {this.state.playerDeck.length}
+          
+        </p>
+        <hr></hr>
+        <p>holding deck length:{this.state.holdingDeck.length} </p>
+        <br></br>
+        <p>
+          computer deck:
+          {this.state.computerDeck.length}
+        </p>
+      <p>{this.state.winnerOfRound}</p>
       </div>
     )
   }
