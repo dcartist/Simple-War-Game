@@ -58,10 +58,10 @@ movingWarCards=(winner, idx)=>{
 
  if (winner == "player"){
   tempDeck = this.state.playerDeck.concat(this.state.holdingDeck)
-  this.setState(()=>({playerDeck:tempDeck, winnerOfRound: "player"}))
+  this.setState(()=>({playerDeck:tempDeck, winnerOfRound: "player", holdingDeck:[]}))
 } else {
   tempDeck = this.state.computerDeck.concat(this.state.holdingDeck)
-  this.setState(()=>({computerDeck: tempDeck, winnerOfRound: "computer"}))
+  this.setState(()=>({computerDeck: tempDeck, winnerOfRound: "computer", holdingDeck:[]}))
  }
  // console.log("player Deck state");
  // console.log(this.state.playerDeck)
@@ -72,9 +72,8 @@ movingWarCards=(winner, idx)=>{
 //* adding cards to the temporary positions
 holdingCards=()=> {
   //* Checking the the player and computer to see if there is a winner via index. When it finds the index then splices based on it.
+  this.setState({war: this.state.war + 1})
   let i = 1
-
-  if (this.state.computerDeck[0].score == this.state.playerDeck[0].score){
     console.log (`${this.state.computerDeck[0].score} vs.  ${this.state.playerDeck[0].score}`)
     let finder = true
     while (finder){
@@ -94,7 +93,6 @@ holdingCards=()=> {
 
       }
 
-    }
   } 
 
   
@@ -146,10 +144,9 @@ setStyle = (styleType) => {
         </Switch>
         <p><Link to="/deck">To Deck</Link></p>
         <p>
-          
-          player deck: {this.state.playerDeck.length}
-          
+          player deck: {this.state.playerDeck.length}    
         </p>
+        
         <hr></hr>
         <p>holding deck length:{this.state.holdingDeck.length} </p>
         <br></br>
@@ -157,7 +154,9 @@ setStyle = (styleType) => {
           computer deck:
           {this.state.computerDeck.length}
         </p>
-      <p>{this.state.winnerOfRound}</p>
+      <p>Winner: {this.state.winnerOfRound}</p>
+      <p>War: {this.state.war}</p>
+
       </div>
     )
   }
