@@ -28,19 +28,19 @@ export default class App extends Component {
   constructor(){
     super()
     this.state={
-        endNumber: 0,
-        deckStyle: 0,
-        playerDeck: [],
-        computerDeck:[],
-        holdingDeck: [],
+        endNumber: 30, //* The number you need to get to win
+        deckStyle: 0, //* Selecting what style to use
+        playerDeck: [], //* Player's deck
+        computerDeck:[], //* Commputer's deck
+        holdingDeck: [], //* Deck for holding cards
         cardColor: "",
-        score: 0,
+        score: 0, //* the actually score
         match: 0,
         gameplay: [],
-        timeElapsed:"",
-        player:"",
+        timeElapsed:"", //* time it took to play the game
+        player:"", //* player's name
         winnerOfRound: "",
-        war: 0
+        war: 0 //* how many times war has been called
     }
 }
 

@@ -12,7 +12,10 @@ export default class Game extends Component {
 
 
     checker = () => {
-        if(this.props.playerDeck[0].score === this.props.computerDeck[0].score){
+        // if(this.props.playerDeck.length === this.props.endNumber || this.props.endNumber == this.props.computerDeck.length){
+
+        // }
+         if(this.props.playerDeck[0].score === this.props.computerDeck[0].score){
             console.log(`${this.props.playerDeck[0].score} vs ${this.props.computerDeck[0].score}`);
             this.props.holdingCards()
             console.log("This is a tie");
@@ -43,16 +46,23 @@ export default class Game extends Component {
                 <ReturntoDeck></ReturntoDeck>
             </div>
         )
+        } else if (this.props.playerDeck.length === this.props.endNumber || this.props.endNumber == this.props.computerDeck.length) {
+        return (
+            <div>
+                There was a winner
+            </div>
+        )
         } else {
             return (
                 <div >
                     <button onClick={this.war}>War</button>
-                    <h3>player's card</h3>
                     <div className="game-board">
                     <div>
+                    <h3>Player's card</h3>
                     <Card rank={this.props.playerDeck[0].rank} suit={this.props.playerDeck[0].suit}/>
                     </div>
                   <div>
+                    <h3>Computer's card</h3>
                   <Card rank={this.props.computerDeck[0].rank} suit={this.props.computerDeck[0].suit}/>
                   </div>
                     </div>
