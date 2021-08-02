@@ -12,6 +12,7 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
     "react-time-tracker-stopwatch": "^0.0.4",
+    "react-use-stopwatch": "^2.1.2",
     "web-vitals": "^1.1.2"
   },
   "scripts": {

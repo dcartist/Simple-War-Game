@@ -8,7 +8,8 @@ import Instructions from "./Pages/Instructions"
 import Deck from "./Components/Card/Deck"
 import Game from "./Pages/Game"
 import PlayerName from "./Pages/PlayerName"
-
+import Tracker from "./Components/TimeTracker/Tracker"
+import Time from "./Components/TimeTracker/HookTimer"
 
 /* Check the first card
 if cards don't match send, compare
@@ -146,6 +147,8 @@ setStyle = (styleType) => {
       <div className="App">
         <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/time" exact component={Tracker} />
+        <Route path="/time1" exact component={Time} />
         <Route path="/limit" exact><CardLimit setWinningNumber={this.setWinningNumber} endNumber={this.state.endNumber}></CardLimit></Route>
         <Route path="/name" exact><PlayerName setName={this.setName} player={this.state.player}></PlayerName></Route>
         <Route path="/help" exact component={Instructions} />

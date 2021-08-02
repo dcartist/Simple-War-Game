@@ -4,8 +4,7 @@ background-color: black;
 display: flex;
 align-items: center;
 justify-content: center;
-
-
+min-width: 55%;
 
 
 .card-inside{
@@ -13,11 +12,13 @@ justify-content: center;
      border: 3px outset white;
      color: white;
      text-align: center;
-     display: flex;
+     display: flex; 
     align-self: center;
     justify-content: center;
     flex-direction: column;
     padding: 25px;
+    background-repeat: inherit;
+    background-size: contain;
 .card-circle{
     color: #000;
     border-radius: 50%;
