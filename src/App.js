@@ -7,6 +7,7 @@ import About from "./Pages/About"
 import Instructions from "./Pages/Instructions"
 import Deck from "./Components/Card/Deck"
 import Game from "./Pages/Game"
+import PlayerName from "./Pages/PlayerName"
 
 
 /* Check the first card
@@ -23,6 +24,12 @@ if same cards send through holding deck again.
 //TODO: add war condition to run holdingCards time 3
 //TODO: make war check updated deck 
 //TODO: write winning funtion
+//TODO: write the limitation of the card to show the win
+//TODO: show when war has been issued
+
+//* If there is time:
+//TODO: create different types of cards to be selected
+
 
 export default class App extends Component {
   constructor(){
@@ -95,7 +102,10 @@ holdingCards=()=> {
 }
 setWinningNumber = (number) => {
   this.setState({endNumber: number})
-  console.log(this.state.endNumber)
+}
+setName = (player) => {
+  this.setState(()=>({player: player}))
+  console.log(this.state.player)
 }
 setCards=(winner)=>{
   
@@ -137,6 +147,7 @@ setStyle = (styleType) => {
         <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/limit" exact><CardLimit setWinningNumber={this.setWinningNumber} endNumber={this.state.endNumber}></CardLimit></Route>
+        <Route path="/name" exact><PlayerName setName={this.setName} player={this.state.player}></PlayerName></Route>
         <Route path="/help" exact component={Instructions} />
         <Route path="/about" exact component={About} />
         <Route path="/deck"><Deck deck={this.state.deck} setDeck={this.setDeck} setSettings={this.setSettings} setStyle={this.setStyle}></Deck></Route>
