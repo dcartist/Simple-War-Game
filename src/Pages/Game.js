@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Card from "../Components/Card/Card"
+import ReturntoDeck from "../Components/ReturnButton/ReturnToDeck"
 export default class Game extends Component {
 //   constructor(props){
 //       super(props)
@@ -7,6 +8,8 @@ export default class Game extends Component {
 //           holder: []
 //       }
 //   }
+
+
 
     checker = () => {
         if(this.props.playerDeck[0].score === this.props.computerDeck[0].score){
@@ -30,23 +33,34 @@ export default class Game extends Component {
     war = () => {
        this.checker()
     }
+  
     render() {
-
-        return (
-            <div >
-                <button onClick={this.war}>War</button>
-                <h3>player's card</h3>
-                <div className="game-board">
-                <div>
-                <Card rank={this.props.playerDeck[0].rank} suit={this.props.playerDeck[0].suit}/>
-                </div>
-              <div>
-              <Card rank={this.props.computerDeck[0].rank} suit={this.props.computerDeck[0].suit}/>
-              </div>
-                </div>
-                
-                
+    
+        if (this.props.playerDeck.length === 0){
+        return(
+            <div>
+                You haven't seleted cards, please return to select your cards
+                <ReturntoDeck></ReturntoDeck>
             </div>
         )
+        } else {
+            return (
+                <div >
+                    <button onClick={this.war}>War</button>
+                    <h3>player's card</h3>
+                    <div className="game-board">
+                    <div>
+                    <Card rank={this.props.playerDeck[0].rank} suit={this.props.playerDeck[0].suit}/>
+                    </div>
+                  <div>
+                  <Card rank={this.props.computerDeck[0].rank} suit={this.props.computerDeck[0].suit}/>
+                  </div>
+                    </div>
+                    
+                    
+                </div>
+            )
+        }
+        
     }
 }
