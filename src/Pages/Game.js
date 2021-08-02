@@ -46,7 +46,7 @@ export default class Game extends Component {
                 <ReturntoDeck></ReturntoDeck>
             </div>
         )
-        } else if (this.props.playerDeck.length === this.props.endNumber || this.props.endNumber == this.props.computerDeck.length) {
+        } else if (this.props.playerDeck.length === this.props.endNumber || this.props.endNumber === this.props.computerDeck.length) {
         return (
             <div>
                 There was a winner

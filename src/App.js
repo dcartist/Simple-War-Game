@@ -1,4 +1,3 @@
-// import './App.css';
 import './Style.scss'
 import React, { Component } from 'react'
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
@@ -57,7 +56,7 @@ movingWarCards=(winner, idx)=>{
  let tempDeck = userTempDeck.concat(computerTempDeck)
  this.setState({ holdingDeck: tempDeck, computerDeck: computerUpdateDeck,  playerDeck: userUpdateDeck });
 
- if (winner == "player"){
+ if (winner === "player"){
   tempDeck = this.state.playerDeck.concat(this.state.holdingDeck)
   this.setState(()=>({playerDeck:tempDeck, winnerOfRound: "player", holdingDeck:[]}))
 } else {
@@ -78,7 +77,7 @@ holdingCards=()=> {
     console.log (`${this.state.computerDeck[0].score} vs.  ${this.state.playerDeck[0].score}`)
     let finder = true
     while (finder){
-      if (this.state.computerDeck[i].score == this.state.playerDeck[i].score){
+      if (this.state.computerDeck[i].score === this.state.playerDeck[i].score){
         i++
         console.log("still tied")
       } else if (this.state.computerDeck[i].score > this.state.playerDeck[i].score){
@@ -91,15 +90,14 @@ holdingCards=()=> {
         console.log("Player won War")
         this.movingWarCards("player", i)
       }
-
-  } 
-
-  
+  }   
 }
-
+setWinningNumber = (number) => {
+  this.setState({endNumber: number})
+}
 setCards=(winner)=>{
   
- if(winner == "player"){
+ if(winner === "player"){
   let updatedDeck = this.state.playerDeck
   updatedDeck.push(this.state.computerDeck[0])
   let poppedDeck = this.state.playerDeck[0]

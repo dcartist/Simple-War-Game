@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { useHistory } from "react-router-dom";
 
@@ -10,7 +10,7 @@ export default function Deck(props) {
           history.push("/game");
         }
       
-    //Fisher–Yates Shuffle https://bost.ocks.org/mike/shuffle/
+//* Fisher–Yates Shuffle https://bost.ocks.org/mike/shuffle/
 function shuffle(array) {
     let newArray = []
     var m = array.length,
