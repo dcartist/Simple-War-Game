@@ -10,7 +10,7 @@ import Game from "./Pages/Game"
 import PlayerName from "./Pages/PlayerName"
 import Tracker from "./Components/TimeTracker/Tracker"
 import Time from "./Components/TimeTracker/HookTimer"
-
+import parseMilliseconds from 'parse-ms';
 /* Check the first card
 if cards don't match send, compare
 and send them to moveDeck. If cards match,
@@ -42,15 +42,36 @@ export default class App extends Component {
         computerDeck:[], //* Commputer's deck
         holdingDeck: [], //* Deck for holding cards
         cardColor: "",
+        counter : 0,
+        check: true,
+        time: '',
         score: 0, //* the actually score
         match: 0,
-        gameplay: [],
+        finaltime: {},
+        startstop: 0,
         timeElapsed:"", //* time it took to play the game
         player:"", //* player's name
         winnerOfRound: "",
         war: 0 //* how many times war has been called
     }
 }
+
+
+ //starts the counter
+ handleStart=() => {
+  this.timer = setInterval(this.secondsTime, 1)
+    }
+    //adds to the counter
+secondsTime = () =>{
+    this.setState({counter: this.state.counter + 1})
+}
+//stops the counter
+handleStop = () => {
+  // clearInterval(this.timer)
+  // this.setState(()=>({finaltime: parseMilliseconds(this.state.counter)}))
+  // console.log(parseMilliseconds(this.state.counter))
+  // console.log(this.state.finaltime)
+  }
 
 movingWarCards=(winner, idx)=>{
  //* Creating new arrays from the state of Player and Computer
@@ -78,6 +99,8 @@ movingWarCards=(winner, idx)=>{
  // console.log(this.state.holdingDeck)
 
 }
+
+
 //* adding cards to the temporary positions
 holdingCards=()=> {
   //* Checking the the player and computer to see if there is a winner via index. When it finds the index then splices based on it.
@@ -170,7 +193,12 @@ setStyle = (styleType) => {
         </p>
       <p>Winner: {this.state.winnerOfRound}</p>
       <p>War: {this.state.war}</p> */}
-
+  <h1>{this.state.counter}</h1>
+        <div className="controls">
+          <button onClick={this.handleStart}>Start</button>
+          <button onClick={this.handleStop}>Pause</button>
+        </div>
+        {this.state.timer}
       </div>
     )
   }
