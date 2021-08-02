@@ -1,6 +1,7 @@
 import './Style.scss'
 import React, { Component } from 'react'
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import CardLimit from "./Pages/CardLimit"
 import Home from "./Pages/Home"
 import About from "./Pages/About"
 import Instructions from "./Pages/Instructions"
@@ -94,6 +95,7 @@ holdingCards=()=> {
 }
 setWinningNumber = (number) => {
   this.setState({endNumber: number})
+  console.log(this.state.endNumber)
 }
 setCards=(winner)=>{
   
@@ -134,12 +136,13 @@ setStyle = (styleType) => {
       <div className="App">
         <Switch>
         <Route path="/" exact component={Home} />
+        <Route path="/limit" exact><CardLimit setWinningNumber={this.setWinningNumber} endNumber={this.state.endNumber}></CardLimit></Route>
         <Route path="/help" exact component={Instructions} />
         <Route path="/about" exact component={About} />
         <Route path="/deck"><Deck deck={this.state.deck} setDeck={this.setDeck} setSettings={this.setSettings} setStyle={this.setStyle}></Deck></Route>
         <Route path="/game"><Game {...this.state} setCards={this.setCards} holdingCards={this.holdingCards}></Game></Route>
         </Switch>
-        <p><Link to="/deck">To Deck</Link></p>
+        {/* <p><Link to="/deck">To Deck</Link></p>
         <p>
           player deck: {this.state.playerDeck.length}    
         </p>
@@ -152,7 +155,7 @@ setStyle = (styleType) => {
           {this.state.computerDeck.length}
         </p>
       <p>Winner: {this.state.winnerOfRound}</p>
-      <p>War: {this.state.war}</p>
+      <p>War: {this.state.war}</p> */}
 
       </div>
     )
