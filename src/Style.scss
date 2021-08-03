@@ -34,6 +34,12 @@ body{
     h3{
         text-align: center;
     }
+
+    p{
+        font-size: 20px;
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+    }
 }
 
 .intro {
@@ -200,3 +206,21 @@ input[type=number]::-webkit-inner-spin-button {
         text-align: center;
     }
   }
+
+
+  h3 {
+
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.7rem;
+    color: white;
+}
+
+.winner{
+    h1 {
+    
+      font-family: 'Libre Baskerville', serif;
+      font-size: 2.7rem;
+      color: white;
+    }
+    
+}
