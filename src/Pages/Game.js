@@ -63,7 +63,7 @@ export default class Game extends Component {
                 </div>
             )
 
-        } else if (this.props.playerDeck.length == this.props.endNumber && this.props.warCheck === false) {
+        } else if (this.props.playerDeck.length <= this.props.endNumber && this.props.warCheck === false) {
             return (
                 <div className="default-background blue-background centered winner">
                     <h1>Player is winner of the War!</h1>
@@ -71,7 +71,7 @@ export default class Game extends Component {
                 </div>
             )
         }
-         else if (this.props.endNumber == this.props.computerDeck.length && this.props.warCheck === false) {
+         else if (this.props.endNumber >= this.props.computerDeck.length && this.props.warCheck === false) {
         return (
             <div className="default-background blue-background centered winner">
                 <h1>The Computer is winner of the War!</h1>
