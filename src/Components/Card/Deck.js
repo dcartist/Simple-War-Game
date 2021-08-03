@@ -2,8 +2,8 @@ import React from 'react';
 import CardBack from "../Card/CardBack"
 import { useHistory } from "react-router-dom";
 import './Card.scss'
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
+import NavButton from "../Navigation/NavButton"
 export default function Deck(props) {
     
         let history = useHistory();
@@ -95,6 +95,7 @@ function shuffle(array) {
             <button onClick={()=>creation(3)}> press here</button>
             </div>
             </div>
+            <NavButton back={"/limit"} noNext={true}></NavButton>
         </div>
     )
 }

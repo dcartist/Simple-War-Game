@@ -1,5 +1,5 @@
 import React from 'react'
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import NavButton from "../Components/Navigation/NavButton"
 export default function Instructions(props) {
     return (
         <div className="default-background purple-background centered instruction">
@@ -14,7 +14,7 @@ export default function Instructions(props) {
 
             <p>When War is activated, three cards from each player are placed into stasis, and then the 4th card is pulled to see who has the higher rank. The winner takes all the cards that both players played in that round.</p>
             <p>To Win: You must reach the level of cards needed.</p>
-            <div><Link to="/"><button>Back</button></Link> <Link to="/limit"><button>Continue</button></Link> </div>
+            <NavButton back={"/"} next={"/limit"} noNext={false}></NavButton>
         </div>
     )
 }

@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import { useHistory } from "react-router-dom";
+import NavButton from "../Components/Navigation/NavButton"
 
 export default function CardLimit(props) {
     let history = useHistory();
@@ -32,6 +33,7 @@ export default function CardLimit(props) {
                 <button onClick={selectNumber}>Enter</button>
                 <p>Choose between 1 to 25</p>
             </form>
+            <NavButton back={"/instructions"}  noNext={true}></NavButton>
         </div>
     )
 }

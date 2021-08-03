@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Card from "../Components/Card/Card"
-
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import ReturntoDeck from "../Components/ReturnButton/ReturnToDeck"
 export default class Game extends Component {
     activateWar = () => {
@@ -54,7 +53,7 @@ export default class Game extends Component {
                     <Card deckStyle={this.props.deckStyle + 3} rank={this.props.playerDeck[0].rank} suit={this.props.playerDeck[0].suit}/>
                     </div>
                   <div className="card-placement"> 
-                    <button onClick={this.activateWar}>Enter the War</button>
+                    <button onClick={this.activateWar}>Draw Cards</button>
                     
                     <p>TIED!</p>
                     <p>Player Cards: {this.props.playerDeck.length}</p>
@@ -93,7 +92,7 @@ export default class Game extends Component {
                     <Card deckStyle={this.props.deckStyle} rank={this.props.playerDeck[0].rank} suit={this.props.playerDeck[0].suit}/>
                     </div>
                     <div className="card-placement">
-                    <button onClick={this.war}>War</button>
+                    <button onClick={this.war}>Draw A Card</button>
                     <p>Winner of round:<br></br> {this.props.winnerOfRound}</p>
                     <p> Player Cards: {this.props.playerDeck.length}</p>
                     <p>Computer's Cards: {this.props.computerDeck.length}</p>

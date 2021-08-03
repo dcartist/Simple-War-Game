@@ -1,6 +1,6 @@
 import './Style.scss'
 import React, { Component } from 'react'
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { AnimatedSwitch } from 'react-router-transition';
 
 import CardLimit from "./Pages/CardLimit"
@@ -10,8 +10,8 @@ import Instructions from "./Pages/Instructions"
 import Deck from "./Components/Card/Deck"
 import Game from "./Pages/Game"
 import PlayerName from "./Pages/PlayerName"
-import Tracker from "./Components/TimeTracker/Tracker"
-import Time from "./Components/TimeTracker/HookTimer"
+// import Tracker from "./Components/TimeTracker/Tracker"
+// import Time from "./Components/TimeTracker/HookTimer"
 import parseMilliseconds from 'parse-ms';
 /* Check the first card
 if cards don't match send, compare
@@ -43,13 +43,12 @@ export default class App extends Component {
         playerDeck: [], //* Player's deck
         computerDeck:[], //* Commputer's deck
         holdingDeck: [], //* Deck for holding cards
-        cardColor: "",
         counter : 0,
         check: true,
         time: '',
         score: 0, //* the actually score
         match: 0,
-        finaltime: {},
+        finaltime: {}, //* upcoming features
         startstop: 0,
         timeElapsed:"", //* time it took to play the game
         player:"", //* player's name
@@ -174,6 +173,10 @@ setStyle = (styleType) => {
 }
 
   render() {
+    console.warn = console.error = () => {};
+    console.log("Were you looking for something?")
+    console.log("Check out my portfolio on https://www.dcartist.studio")
+// Look ma, no error!
     return (
       <div className="App">
         {/* <Switch> */}
@@ -184,8 +187,6 @@ setStyle = (styleType) => {
       className="switch-wrapper"
     >
         <Route path="/" exact component={Home} />
-        <Route path="/time" exact component={Tracker} />
-        <Route path="/time1" exact component={Time} />
         <Route path="/limit" exact><CardLimit setWinningNumber={this.setWinningNumber} endNumber={this.state.endNumber}></CardLimit></Route>
         <Route path="/name" exact><PlayerName setName={this.setName} player={this.state.player}></PlayerName></Route>
         <Route path="/help" exact component={Instructions} />

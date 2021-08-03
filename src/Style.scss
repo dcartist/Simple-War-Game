@@ -175,16 +175,16 @@ input[type=number]::-webkit-inner-spin-button {
           font-family: 'Open Sans', sans-serif;
           font-weight: 300;
       }
-      ul {
-          text-align: left;
-          li{
-            font-size: 18px;
-            font-family: 'Open Sans', sans-serif;
-            font-weight: 300;
-          }
-      }
+      
   }
-
+  ul {
+    text-align: left;
+    li{
+      font-size: 18px;
+      font-family: 'Open Sans', sans-serif;
+      font-weight: 300;
+    }
+}
   .limit {
       h1{
         font-family: 'Libre Baskerville', serif;
@@ -223,4 +223,46 @@ input[type=number]::-webkit-inner-spin-button {
       color: white;
     }
     
+}
+
+.war-intro-navbuttons{
+    color: white;
+    button {
+        margin: 10px;
+        margin-top: 20px;
+    }
+}
+
+.about {
+    padding: 20px;
+    span{
+        font-size: 24px;
+        font-weight: bold;
+    }
+    a {
+        color: white;
+    }
+    .tech-used{
+        width: 100%;
+        // margin: auto;
+    }
+    li {
+        list-style: none;
+        text-align: center;
+    }
+    p{
+        margin: 10px 0;
+        font-size: 20px;
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+        width: 75%;
+        letter-spacing: 1.3px;
+    }
+    ul {
+        margin: 5px 0;
+    }
+    button{
+        margin-top: 10px;
+    }
 }
