@@ -187,7 +187,7 @@ setStyle = (styleType) => {
         <Route path="/limit" exact><CardLimit setWinningNumber={this.setWinningNumber} endNumber={this.state.endNumber}></CardLimit></Route>
         <Route path="/name" exact><PlayerName setName={this.setName} player={this.state.player}></PlayerName></Route>
         <Route path="/help" exact component={Instructions} />
-        <Route path="/instructions" exact component={Instructions} />
+        <Route path="/instructions" exact component={Instructions}  setWinningNumber={this.setWinningNumber} endNumber={this.state.endNumber}/>
         <Route path="/about" exact component={About} />
         <Route path="/deck"><Deck deck={this.state.deck} setDeck={this.setDeck} setSettings={this.setSettings} setStyle={this.setStyle}></Deck></Route>
         <Route path="/game"><Game {...this.state} changeWarState={this.changeWarState} setCards={this.setCards} holdingCards={this.holdingCards}></Game></Route>
