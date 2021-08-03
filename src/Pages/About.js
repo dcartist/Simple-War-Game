@@ -16,7 +16,7 @@ export default function About() {
            <p><span>Github Repo: </span> <a href="https://github.com/dcartist/Simple-War-Game" target="_blank">www.github.com/dcartist/Simple-War-Game</a></p>
            <p><span>Technologies Used:</span></p>
            <ul>
-               <li>ReactJS Framework</li>
+               <li>ReactJS Framework (hooks and classes)</li>
                <li>Javascript</li>
                <li>React Router Transition</li>
            </ul>

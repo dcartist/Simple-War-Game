@@ -50,7 +50,7 @@ When War is activated, three cards from each player are placed into stasis, and 
 
 ## **Technologies Used:**
 
-- React JS Framework
+- React JS Framework (hooks and classes)
 - Javascript
 - React Router Transition
 
