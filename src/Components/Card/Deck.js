@@ -1,6 +1,8 @@
 import React from 'react';
-
+import CardBack from "../Card/CardBack"
 import { useHistory } from "react-router-dom";
+import './Card.scss'
+import { Route, Link, Switch, Redirect } from 'react-router-dom';
 
 export default function Deck(props) {
     
@@ -76,10 +78,23 @@ function shuffle(array) {
         gotodeck()
     }
     return (
-        <div>
+        <div className="default-background redBackground centered">
+            <h1>Please select your deck</h1>
+            <div className="deck-listing">
+            <div>
+            <Link onClick={()=>creation(1)}><CardBack image={1}></CardBack></Link>
             <button onClick={()=>creation(1)}> press here</button>
+            </div>
+            <div>
+                
+            <Link onClick={()=>creation(2)}><CardBack image={2}></CardBack></Link>
             <button onClick={()=>creation(2)}> press here</button>
+            </div>
+            <div>
+            <Link onClick={()=>creation(3)}><CardBack image={3}></CardBack></Link>
             <button onClick={()=>creation(3)}> press here</button>
+            </div>
+            </div>
         </div>
     )
 }

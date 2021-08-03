@@ -1,6 +1,8 @@
 import React, {useState} from 'react'
+import { useHistory } from "react-router-dom";
 
 export default function CardLimit(props) {
+    let history = useHistory();
     const [limit, setlimit] = useState(0)
     function numberEntered(e){
         e.preventDefault()
@@ -10,6 +12,7 @@ export default function CardLimit(props) {
     function selectNumber(e){
         e.preventDefault()
         props.setWinningNumber(limit)
+        history.push("/deck");
     }
 
   
