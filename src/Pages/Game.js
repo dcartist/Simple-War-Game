@@ -67,7 +67,7 @@ export default class Game extends Component {
             return (
                 <div className="default-background blue-background centered winner">
                     <h1>Player is winner of the War!</h1>
-                    <Link to="/"><button>Click here to return to intro</button></Link>
+                    <Link to="/"><button>Return to intro</button></Link>
                 </div>
             )
         }
@@ -75,7 +75,7 @@ export default class Game extends Component {
         return (
             <div className="default-background blue-background centered winner">
                 <h1>The Computer is winner of the War!</h1>
-                <Link to="/"><button>Click here to return to intro</button></Link>
+                <Link to="/"><button>Return to intro</button></Link>
 
             </div>
         )
