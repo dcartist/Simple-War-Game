@@ -1,6 +1,7 @@
+
 .card-front{
-border: 1px solid black;
-background-color: black;
+// border: 1px solid black;
+// background-color: black;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -18,7 +19,16 @@ min-width: 55%;
     flex-direction: column;
     padding: 25px;
     background-repeat: inherit;
-    background-size: contain;
+    background-size: cover;
+    box-shadow: 3px 15px 5px -9px rgba(0,0,0,0.41);
+-webkit-box-shadow: 3px 15px 5px -9px rgba(0,0,0,0.41);
+-moz-box-shadow: 3px 15px 5px -9px rgba(0,0,0,0.41);   
+
+    &::before{
+        border: 4px outset rgb(0, 0, 0);
+        padding: 4px;
+        background-color: black;
+    }
 .card-circle{
     color: #000;
     border-radius: 50%;
@@ -35,6 +45,15 @@ min-width: 55%;
 
     h1{
         text-align: center;
+        font-size: 2.6rem;
+        // font-stretch: condensed;
+        -webkit-transform: scale(1, 2);
+        -moz-transform: scale(1, 2);
+        -o-transform: scale(1, 2);
+        transform: scale(1, 2);
+        // font-family: 'Abril Fatface', cursive;
+        font-weight: bold;
+        font-family: 'Libre Baskerville', serif;
     }
 }
 

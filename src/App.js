@@ -1,6 +1,8 @@
 import './Style.scss'
 import React, { Component } from 'react'
 import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import { AnimatedSwitch } from 'react-router-transition';
+
 import CardLimit from "./Pages/CardLimit"
 import Home from "./Pages/Home"
 import About from "./Pages/About"
@@ -36,7 +38,7 @@ export default class App extends Component {
   constructor(){
     super()
     this.state={
-        endNumber: 30, //* The number you need to get to win
+        endNumber: 40, //* The number you need to get to win
         deckStyle: 0, //* Selecting what style to use
         playerDeck: [], //* Player's deck
         computerDeck:[], //* Commputer's deck
@@ -52,11 +54,15 @@ export default class App extends Component {
         timeElapsed:"", //* time it took to play the game
         player:"", //* player's name
         winnerOfRound: "",
+        warCheck: false,
         war: 0 //* how many times war has been called
     }
 }
 
-
+changeWarState = (trueOrfalse) =>
+{
+this.setState(()=>({warCheck: trueOrfalse}))
+}
  //starts the counter
  handleStart=() => {
   this.timer = setInterval(this.secondsTime, 1)
@@ -168,17 +174,25 @@ setStyle = (styleType) => {
   render() {
     return (
       <div className="App">
-        <Switch>
+        {/* <Switch> */}
+        <AnimatedSwitch
+      atEnter={{ opacity: 0 }}
+      atLeave={{ opacity: 0 }}
+      atActive={{ opacity: 1 }}
+      className="switch-wrapper"
+    >
         <Route path="/" exact component={Home} />
         <Route path="/time" exact component={Tracker} />
         <Route path="/time1" exact component={Time} />
         <Route path="/limit" exact><CardLimit setWinningNumber={this.setWinningNumber} endNumber={this.state.endNumber}></CardLimit></Route>
         <Route path="/name" exact><PlayerName setName={this.setName} player={this.state.player}></PlayerName></Route>
         <Route path="/help" exact component={Instructions} />
+        <Route path="/instructions" exact component={Instructions} />
         <Route path="/about" exact component={About} />
         <Route path="/deck"><Deck deck={this.state.deck} setDeck={this.setDeck} setSettings={this.setSettings} setStyle={this.setStyle}></Deck></Route>
-        <Route path="/game"><Game {...this.state} setCards={this.setCards} holdingCards={this.holdingCards}></Game></Route>
-        </Switch>
+        <Route path="/game"><Game {...this.state} changeWarState={this.changeWarState} setCards={this.setCards} holdingCards={this.holdingCards}></Game></Route>
+        {/* </Switch> */}
+        </AnimatedSwitch>
         {/* <p><Link to="/deck">To Deck</Link></p>
         <p>
           player deck: {this.state.playerDeck.length}    
@@ -193,12 +207,12 @@ setStyle = (styleType) => {
         </p>
       <p>Winner: {this.state.winnerOfRound}</p>
       <p>War: {this.state.war}</p> */}
-  <h1>{this.state.counter}</h1>
+  {/* <h1>{this.state.counter}</h1>
         <div className="controls">
           <button onClick={this.handleStart}>Start</button>
           <button onClick={this.handleStop}>Pause</button>
         </div>
-        {this.state.timer}
+        {this.state.timer} */}
       </div>
     )
   }

@@ -5,7 +5,7 @@ export default function Card(props) {
     return (
        <div>
             <div className="card-front">
-            <div className="card-inside" style={{ backgroundImage: `url(${process.env.PUBLIC_URL + '/images/background.png'})` }}>
+            <div className="card-inside" style={{ backgroundImage: `url(${process.env.PUBLIC_URL + '/images/'+props.deckStyle+ '.png'})` }}>
                 <div className="card-circle">
                 <h1>{props.rank}</h1>
                 </div>

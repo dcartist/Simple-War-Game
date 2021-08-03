@@ -80,7 +80,6 @@ function shuffle(array) {
             <button onClick={()=>creation(1)}> press here</button>
             <button onClick={()=>creation(2)}> press here</button>
             <button onClick={()=>creation(3)}> press here</button>
-            <button onClick={()=>creation(4)}> press here</button>
         </div>
     )
 }
