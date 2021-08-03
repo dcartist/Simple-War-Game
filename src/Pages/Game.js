@@ -14,20 +14,16 @@ export default class Game extends Component {
           this.props.changeWarState(true)
         }
         else if(this.props.playerDeck[0].score > this.props.computerDeck[0].score){
-            console.log("player wins")
             this.props.setCards("player")
             this.props.changeWarState(false)
         } 
         else if (this.props.playerDeck[0].score < this.props.computerDeck[0].score){
-            console.log("computer wins")
             this.props.setCards("computer")
             this.props.changeWarState(false)
             
         } else {
             
-            console.log(`${this.props.playerDeck[0].score} vs ${this.props.computerDeck[0].score}`);
             this.props.holdingCards()
-            console.log("Ending in tie");
         }
     }
     war = () => {

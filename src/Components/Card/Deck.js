@@ -36,7 +36,6 @@ function shuffle(array) {
 //calling to shuffle the array
 
     function creation(deckstyle){
-        console.log(`This is the deck number ${deckstyle}`)
         let cards = []
         const cardRanks = [
             "Ace",

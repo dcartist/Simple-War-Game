@@ -7,7 +7,6 @@ export default function CardLimit(props) {
     const [limit, setlimit] = useState(props.endNumber)
     function numberEntered(e){
         e.preventDefault()
-        console.log(e.target.value)
         setlimit(e.target.value)
     }
     function nextSection(){
