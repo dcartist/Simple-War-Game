@@ -1,12 +1,12 @@
 import React from 'react'
 import NavButton from "../Components/Navigation/NavButton"
-
+import Image from "../Images/paulaBannerman.jpeg"
 export default function About() {
     return (
         <div className="purple-background centered default-background about">
            
            <p><span>Created by: </span>Paula Bannerman</p>
-           
+           <img src={Image} className="shadow"></img>
            <p><span>When: </span>built during the Mintbean hackathon</p>
            
            <p><span>Duration of Creation: </span>1 week</p>
