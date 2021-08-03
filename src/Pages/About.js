@@ -10,10 +10,10 @@ export default function About() {
            <p><span>When: </span>built during the Mintbean hackathon</p>
            
            <p><span>Duration of Creation: </span>1 week</p>
-           <p><span>Portfolio: </span> <a href="https://www.dcartist.studio" target="_blank">www.dcartist.studio</a></p>
-           <p><span>LinkedIn: </span> <a href="https://www.linkedin.com/in/dcartist" target="_blank">www.linkedin.com/in/dcartist</a></p>
-           <p><span>Github: </span> <a href="https://github.com/dcartist" target="_blank">www.github.com/dcartist</a></p>
-           <p><span>Github Repo: </span> <a href="https://github.com/dcartist/Simple-War-Game" target="_blank">www.github.com/dcartist/Simple-War-Game</a></p>
+           <p><span>Portfolio: </span> <a href="https://www.dcartist.studio" target="_blank" rel="noreferrer" >www.dcartist.studio</a></p>
+           <p><span>LinkedIn: </span> <a href="https://www.linkedin.com/in/dcartist" rel="noreferrer" target="_blank">www.linkedin.com/in/dcartist</a></p>
+           <p><span>Github: </span> <a href="https://github.com/dcartist" rel="noreferrer" target="_blank">www.github.com/dcartist</a></p>
+           <p><span>Github Repo: </span> <a href="https://github.com/dcartist/Simple-War-Game" rel="noreferrer" target="_blank">www.github.com/dcartist/Simple-War-Game</a></p>
            <p><span>Technologies Used:</span></p>
            <ul>
                <li>ReactJS Framework (hooks and classes)</li>
