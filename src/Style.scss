@@ -3,7 +3,7 @@
 // $cardSize-height: 50%;
 // $cardSize-width: 50%;
 // $cardCircle: 50%;
-@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Open+Sans:wght@300;400&display=swap');
 .App{
     // display: flex;
     // flex-direction: column;
@@ -18,7 +18,7 @@ body{
 
 .game-board{
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr 2fr;
     column-gap: 30px;
     @media only screen and (max-width: 600px) {
         grid-template-columns: 1fr;
@@ -46,6 +46,8 @@ body{
     flex-direction: column;
     
     h1 {
+
+        font-family: 'Libre Baskerville', serif;
         font-size: 2.7rem;
         color: white;
         -webkit-transform: scale(2);
@@ -61,15 +63,62 @@ body{
     display: flex;
 }
 
-
-.redBackground {
+.quote{
+    color: white;
+    font-size: 1.5rem;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 1.5px;
+    font-weight: 300;
+}
+.quote-name{
+    margin-top: 5px;
+    color: white;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: 1.2px;
+    padding: 0;
+    font-family: 'Libre Baskerville', serif;
+    // margin:0;
+}
+.red-background {
     color: white;
     background: rgb(170,3,3);
     background: radial-gradient(circle, rgba(170,3,3,1) 32%, rgba(66,5,5,1) 98%);
 }
 
+.black-background{
+    color: white;
+    background: rgb(65,65,65);
+    background: -moz-radial-gradient(circle, rgba(65,65,65,0.9978700953037465) 39%, rgba(36,36,36,1) 100%);
+    background: -webkit-radial-gradient(circle, rgba(65,65,65,0.9978700953037465) 39%, rgba(36,36,36,1) 100%);
+    background: radial-gradient(circle, rgba(65,65,65,0.9978700953037465) 39%, rgba(36,36,36,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#414141",endColorstr="#242424",GradientType=1);;
+}
 .whiteBackground{
+background: rgb(255,255,255);
+background: -moz-radial-gradient(circle, rgba(255,255,255,0.9978700953037465) 0%, rgba(178,178,178,1) 100%);
+background: -webkit-radial-gradient(circle, rgba(255,255,255,0.9978700953037465) 0%, rgba(178,178,178,1) 100%);
+background: radial-gradient(circle, rgba(255,255,255,0.9978700953037465) 0%, rgba(178,178,178,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#b2b2b2",GradientType=1);
     
+}
+.purple-background{
+    color: white;
+    background: rgb(88,17,107);
+background: -moz-radial-gradient(circle, rgba(88,17,107,0.9978700953037465) 0%, rgba(0,0,0,1) 100%);
+background: -webkit-radial-gradient(circle, rgba(88,17,107,0.9978700953037465) 0%, rgba(0,0,0,1) 100%);
+background: radial-gradient(circle, rgba(88,17,107,0.9978700953037465) 0%, rgba(0,0,0,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#58116b",endColorstr="#000000",GradientType=1);
+}
+.blue-background{
+    color: white;
+background: rgb(46,80,147);
+background: -moz-radial-gradient(circle, rgba(46,80,147,0.9978700953037465) 0%, rgba(0,0,0,1) 100%);
+background: -webkit-radial-gradient(circle, rgba(46,80,147,0.9978700953037465) 0%, rgba(0,0,0,1) 100%);
+background: radial-gradient(circle, rgba(46,80,147,0.9978700953037465) 0%, rgba(0,0,0,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#2e5093",endColorstr="#000000",GradientType=1);
 }
 
 .centered {
@@ -77,3 +126,77 @@ body{
     justify-content: center;
     flex-direction: column;
 }
+
+input[type=number]::-webkit-inner-spin-button {
+    opacity: 1;
+  }
+
+  input[type=number] {
+      font-size: 18px;
+      padding: 20px;
+  }
+
+  button {
+      padding: 20px;
+      font-size: 18px;
+      box-shadow: 3px 15px 5px -9px rgba(0,0,0,0.41);
+    -webkit-box-shadow: 3px 15px 5px -9px rgba(0,0,0,0.41);
+    -moz-box-shadow: 3px 15px 5px -9px rgba(0,0,0,0.41); 
+  }
+
+  .shadow{
+    box-shadow: 3px 15px 5px -9px rgba(0,0,0,0.41);
+    -webkit-box-shadow: 3px 15px 5px -9px rgba(0,0,0,0.41);
+    -moz-box-shadow: 3px 15px 5px -9px rgba(0,0,0,0.41); 
+  }
+
+
+  .instruction{
+      text-align: center;
+      h1{
+        font-family: 'Libre Baskerville', serif;
+        font-size: 2.7rem;
+        // color: white;
+        -webkit-transform: scale(2);
+        -moz-transform: scale(2);
+        -o-transform: scale(2);
+        transform: scale(2);
+      }
+
+      p{
+          font-size: 20px;
+          width: 75%;
+          font-family: 'Open Sans', sans-serif;
+          font-weight: 300;
+      }
+      ul {
+          text-align: left;
+          li{
+            font-size: 18px;
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 300;
+          }
+      }
+  }
+
+  .limit {
+      h1{
+        font-family: 'Libre Baskerville', serif;
+        font-size: 2.7rem;
+        color: white;
+        -webkit-transform: scale(2);
+        -moz-transform: scale(2);
+        -o-transform: scale(2);
+        transform: scale(2);
+      }
+      p{
+        font-size: 20px;
+        text-align: center;
+        font-family: 'Open Sans', sans-serif;
+        font-weight: 300;
+    }
+    form{
+        // margin: auto;
+        text-align: center;
+    }
+  }

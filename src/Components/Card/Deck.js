@@ -78,7 +78,7 @@ function shuffle(array) {
         gotodeck()
     }
     return (
-        <div className="default-background redBackground centered">
+        <div className="default-background red-background centered deck-board">
             <h1>Please select your deck</h1>
             <div className="deck-listing">
             <div>

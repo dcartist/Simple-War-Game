@@ -38,7 +38,7 @@ export default class App extends Component {
   constructor(){
     super()
     this.state={
-        endNumber: 40, //* The number you need to get to win
+        endNumber: 20, //* The number you need to get to win
         deckStyle: 0, //* Selecting what style to use
         playerDeck: [], //* Player's deck
         computerDeck:[], //* Commputer's deck
@@ -90,9 +90,9 @@ movingWarCards=(winner, idx)=>{
 
  //* Inserting new cards into an array and setting it to state
  let tempDeck = userTempDeck.concat(computerTempDeck)
- this.setState({ holdingDeck: tempDeck, computerDeck: computerUpdateDeck,  playerDeck: userUpdateDeck });
+ this.setState(()=>({ holdingDeck: tempDeck, computerDeck: computerUpdateDeck,  playerDeck: userUpdateDeck }));
 
- if (winner === "player"){
+ if (winner == "player"){
   tempDeck = this.state.playerDeck.concat(this.state.holdingDeck)
   this.setState(()=>({playerDeck:tempDeck, winnerOfRound: "player", holdingDeck:[]}))
 } else {
@@ -109,14 +109,16 @@ movingWarCards=(winner, idx)=>{
 
 //* adding cards to the temporary positions
 holdingCards=()=> {
+
+  // this.setState(()=>({winnerOfRound: "tied"}))
   //* Checking the the player and computer to see if there is a winner via index. When it finds the index then splices based on it.
   this.setState({war: this.state.war + 1})
-  let i = 1
+  let i = 3
     console.log (`${this.state.computerDeck[0].score} vs.  ${this.state.playerDeck[0].score}`)
     let finder = true
-    while (finder){
+    while (finder == true){
       if (this.state.computerDeck[i].score === this.state.playerDeck[i].score){
-        i++
+        i = i + 1
         console.log("still tied")
       } else if (this.state.computerDeck[i].score > this.state.playerDeck[i].score){
         finder = false
