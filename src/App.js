@@ -1,6 +1,6 @@
 import './Style.scss'
 import React, { Component } from 'react'
-import { Route, Link, Switch, Redirect } from 'react-router-dom';
+import { Route } from 'react-router-dom';
 import { AnimatedSwitch } from 'react-router-transition';
 
 import CardLimit from "./Pages/CardLimit"
@@ -10,8 +10,8 @@ import Instructions from "./Pages/Instructions"
 import Deck from "./Components/Card/Deck"
 import Game from "./Pages/Game"
 import PlayerName from "./Pages/PlayerName"
-import Tracker from "./Components/TimeTracker/Tracker"
-import Time from "./Components/TimeTracker/HookTimer"
+// import Tracker from "./Components/TimeTracker/Tracker"
+// import Time from "./Components/TimeTracker/HookTimer"
 import parseMilliseconds from 'parse-ms';
 /* Check the first card
 if cards don't match send, compare
@@ -38,18 +38,17 @@ export default class App extends Component {
   constructor(){
     super()
     this.state={
-        endNumber: 40, //* The number you need to get to win
+        endNumber: 20, //* The number you need to get to win
         deckStyle: 0, //* Selecting what style to use
         playerDeck: [], //* Player's deck
         computerDeck:[], //* Commputer's deck
         holdingDeck: [], //* Deck for holding cards
-        cardColor: "",
         counter : 0,
         check: true,
         time: '',
         score: 0, //* the actually score
         match: 0,
-        finaltime: {},
+        finaltime: {}, //* upcoming features
         startstop: 0,
         timeElapsed:"", //* time it took to play the game
         player:"", //* player's name
@@ -90,9 +89,9 @@ movingWarCards=(winner, idx)=>{
 
  //* Inserting new cards into an array and setting it to state
  let tempDeck = userTempDeck.concat(computerTempDeck)
- this.setState({ holdingDeck: tempDeck, computerDeck: computerUpdateDeck,  playerDeck: userUpdateDeck });
+ this.setState(()=>({ holdingDeck: tempDeck, computerDeck: computerUpdateDeck,  playerDeck: userUpdateDeck }));
 
- if (winner === "player"){
+ if (winner == "player"){
   tempDeck = this.state.playerDeck.concat(this.state.holdingDeck)
   this.setState(()=>({playerDeck:tempDeck, winnerOfRound: "player", holdingDeck:[]}))
 } else {
@@ -109,14 +108,16 @@ movingWarCards=(winner, idx)=>{
 
 //* adding cards to the temporary positions
 holdingCards=()=> {
+
+  // this.setState(()=>({winnerOfRound: "tied"}))
   //* Checking the the player and computer to see if there is a winner via index. When it finds the index then splices based on it.
   this.setState({war: this.state.war + 1})
-  let i = 1
+  let i = 3
     console.log (`${this.state.computerDeck[0].score} vs.  ${this.state.playerDeck[0].score}`)
     let finder = true
-    while (finder){
+    while (finder == true){
       if (this.state.computerDeck[i].score === this.state.playerDeck[i].score){
-        i++
+        i = i + 1
         console.log("still tied")
       } else if (this.state.computerDeck[i].score > this.state.playerDeck[i].score){
         finder = false
@@ -172,6 +173,10 @@ setStyle = (styleType) => {
 }
 
   render() {
+    console.warn = console.error = () => {};
+    console.log("Were you looking for something?")
+    console.log("Check out my portfolio on https://www.dcartist.studio")
+// Look ma, no error!
     return (
       <div className="App">
         {/* <Switch> */}
@@ -182,12 +187,10 @@ setStyle = (styleType) => {
       className="switch-wrapper"
     >
         <Route path="/" exact component={Home} />
-        <Route path="/time" exact component={Tracker} />
-        <Route path="/time1" exact component={Time} />
         <Route path="/limit" exact><CardLimit setWinningNumber={this.setWinningNumber} endNumber={this.state.endNumber}></CardLimit></Route>
         <Route path="/name" exact><PlayerName setName={this.setName} player={this.state.player}></PlayerName></Route>
         <Route path="/help" exact component={Instructions} />
-        <Route path="/instructions" exact component={Instructions} />
+        <Route path="/instructions" exact component={Instructions}  setWinningNumber={this.setWinningNumber} endNumber={this.state.endNumber}/>
         <Route path="/about" exact component={About} />
         <Route path="/deck"><Deck deck={this.state.deck} setDeck={this.setDeck} setSettings={this.setSettings} setStyle={this.setStyle}></Deck></Route>
         <Route path="/game"><Game {...this.state} changeWarState={this.changeWarState} setCards={this.setCards} holdingCards={this.holdingCards}></Game></Route>

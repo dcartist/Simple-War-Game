@@ -1,4 +1,25 @@
+.card-back{
+    height: 300px;
+    width: 250px;
+    border: 3px outset white;
+    background-repeat: inherit;
+    background-size: cover;
+    box-shadow: 3px 15px 5px -9px rgba(0,0,0,0.41);
+    -webkit-box-shadow: 3px 15px 5px -9px rgba(0,0,0,0.41);
+    -moz-box-shadow: 3px 15px 5px -9px rgba(0,0,0,0.41);  
+}
 
+.deck-board{
+    h1{
+        font-family: 'Libre Baskerville', serif;
+        font-size: 2.7rem;
+        color: white;
+        -webkit-transform: scale(2);
+        -moz-transform: scale(2);
+        -o-transform: scale(2);
+        transform: scale(2);
+      }
+}
 .card-front{
 // border: 1px solid black;
 // background-color: black;
@@ -58,7 +79,22 @@ min-width: 55%;
 }
 
 }
+}
 
-     
- 
+.deck-listing{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    column-gap: 30px;
+    margin-bottom: 30px;
+    div{
+        justify-items: center;
+        margin: auto;
+        text-align: center;
+        margin-top: 10px;
+
+        button{
+            margin-top: 15px;
+        }
+    }
+
 }
