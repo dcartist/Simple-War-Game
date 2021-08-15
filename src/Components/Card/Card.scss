@@ -19,6 +19,8 @@
         -o-transform: scale(2);
         transform: scale(2);
       }
+
+     
 }
 .card-front{
 // border: 1px solid black;
@@ -97,4 +99,21 @@ min-width: 55%;
         }
     }
 
+}
+
+@media only screen and (max-width: 600px) {
+    .deck-board{
+        text-align: center;
+        h1{
+
+            font-size: 3.2rem;
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -o-transform: scale(1);
+            transform: scale(1);
+        }
+    }
+    .deck-listing{
+        grid-template-columns: 1fr;
+    }
 }
